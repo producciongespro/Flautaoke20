@@ -18,8 +18,8 @@ const obtenerDatosPerfil = () => {
 const guardarDatosPerfil = (props) => {
   //TODO Enviar datos del form al servidor **********
   console.log("Usuario", usuario);
-  
-  //props.handlerCerrarModal();
+  sessionStorage.setItem("usuario", JSON.stringify(usuario) );  
+  props.handlerCerrarModal();
 }
 
 const guardarValoresTxt = (e) => {
@@ -41,6 +41,9 @@ const guardarValoresTxt = (e) => {
     case "txtCentroEducativo":
       usuario.centroEducativo = item.value;
     break;  
+    case "txtCorreo":
+        usuario.correo = item.value;
+      break;  
 
     
     default:
@@ -76,6 +79,19 @@ let item = e.target;
 }
 
 
+const abrirGaleria = ( e, props) => {
+  /*
+  Este método ejecuta dos rutinas:
+  1 - Guarda en session el objeto usuario ya que como va abrir otro modal el objeto en memoria se peirde
+  2 - llama a handlerMontarTipoModal del componente padre que lo recibe dentro de  props
+  Como ese método tiene que enviar el objeto e, se adjunta como argumento desde el objeto img mediante arrow fucntion
+  */
+  //console.log(e.target);  
+  sessionStorage.setItem("usuario", JSON.stringify(usuario) );
+  props.handlerMontarTipoModal(e);
+}
+
+
 const Perfil = (props) => {  
   obtenerDatosPerfil();
 
@@ -97,7 +113,7 @@ const Perfil = (props) => {
 
         <div className="row ">
           <div className="col-md-5 animated zoomInDown">
-            <img data-tar="galeria" onClick={props.handlerMontarTipoModal} className="img-perfil" src=
+            <img data-tar="galeria" onClick={ (e) => abrirGaleria(e, props)  } className="img-perfil" src=
                 {
                     //Carga de imagen de avatar desde el sesion storage           
                     imgAvatar
@@ -184,7 +200,7 @@ const Perfil = (props) => {
 
         <div className="row">
           <div className="col-md-8">
-            <input type="email" className="form-control" placeholder="Introduzca su email" defaultValue= {usuario.correo} />                        
+            <input type="email" className="form-control"  id="txtCorreo" placeholder="Introduzca su email" defaultValue= {usuario.correo}  onChange={guardarValoresTxt} />                        
           </div>
           <div className="col-md-4">
             <button  onClick = { () => guardarDatosPerfil( props) }  className="btn btn-warning" > Guardar perfil </button>
