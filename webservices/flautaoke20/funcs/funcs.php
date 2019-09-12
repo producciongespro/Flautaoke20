@@ -82,11 +82,11 @@ $mysqli=conectarDB();
 		}
 	}
 
-	function registraUsuario($nombre, $apellido1, $apellido2,  $claveEncriptada, $usuario, $pais, $provincia, $sexo, $fechaNacimiento, $activo, $token, $tipoUsuario){
+	function registraUsuario($usuario, $claveEncriptada, $nombre, $apellido1, $apellido2, $pais, $provincia, $fechaNacimiento, $sexo, $token, $tipoUsuario, $activo){
 		$mysqli = conectarDB();
-      mysqli_query(
-			//$mysqli,"INSERT INTO usuarios (nombre, apeliido1, apeliido2,  claveEncriptada, usuario,  pais, provincia, sexo, fechaNacimiento, activo, token, tipoUsuario) VALUES( '$nombre', '$apellido1', '$apellido2',  '$claveEncriptada', '$usuario', '$pais', '$provincia', '$sexo', '$fechaNacimiento', '$activo, '$token', '$tipoUsuario')") or die ("Problemas al insertar registro".mysqli_error($mysqli));
-			$mysqli,"INSERT INTO usuarios (nombre, apeliido1, apeliido2,  claveEncriptada, usuario,  pais, provincia, sexo, fechaNacimiento, activo, token, tipoUsuario) VALUES( 'pepe', 'apellido1', 'apellido2',  'claveEncriptada', 'usuario', 'pais', 'provincia', 'm', '2018-04-17', '1, '121212', '1')") or die ("Problemas al insertar registro".mysqli_error($mysqli));
+      mysqli_query(																																													
+				$mysqli,"INSERT INTO usuarios (usuario, claveEncriptada, nombre, apellido1, apellido2, pais, provincia, fechaNacimiento,  sexo, token, tipoUsuario, activo) VALUES( '$usuario', '$claveEncriptada', '$nombre',  '$apellido1', '$apellido2', '$pais', '$provincia', '$fechaNacimiento', '$sexo', '$token, '$tipoUsuario', '$activo')") or die ("Problemas al insertar registro".mysqli_error($mysqli));
+				//$mysqli,"INSERT INTO usuarios ( usuario, claveEncriptada, nombre, apellido1, apellido2, pais, provincia, fechaNacimiento,  sexo, token, tipoUsuario, activo ) VALUES( 'pepe', 'apellido1', 'apellido2',  'claveEncriptada', 'usuario', 'pais', 'provincia', 'm', '2018-04-17', '1, '121212', '1')") or die ("Problemas al insertar registro".mysqli_error($mysqli));
 			if ($mysqli) {
 				return 1;
 			}

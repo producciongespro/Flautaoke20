@@ -11,8 +11,8 @@
 	
 		$errors = array();
 		
-		$nombre = $dataObject-> nombre;
-		$apellido1 = $dataObject-> apellido1;
+		$nombre =   $dataObject-> nombre;
+		$apellido1 =  $dataObject-> apellido1;
 		$apellido2 = $dataObject-> apellido2;
 		$usuario = $dataObject-> usuario;
 		$pais = $dataObject-> pais;
@@ -23,6 +23,8 @@
 		$confirmaClave = $dataObject-> confirmaClave;
 		$activo = 1;
 		$tipoUsuario = 1;
+			
+		
 	
 	//Se crea el objeto persona para enviarlo al cliente en caso de resgistro satisfactorio o error			
 	$persona = new stdClass();
@@ -57,8 +59,11 @@
 
 				$claveEncriptada = hashPassword($clave);
 				$token = generateToken();
+				
+			
+				
 
-				$registro = registraUsuario($nombre, $apellido1, $apellido2,  $claveEncriptada, $usuario, $pais, $provincia, $sexo, $fechaNacimiento, $activo, $token, $tipoUsuario);
+				$registro = registraUsuario($usuario, $claveEncriptada, $nombre, $apellido1, $apellido2, $pais, $provincia, $fechaNacimiento, $sexo, $token, $tipoUsuario, $activo);
 
 				if($registro > 0 )
 				{
