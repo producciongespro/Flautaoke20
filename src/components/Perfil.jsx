@@ -22,7 +22,7 @@ const guardarDatosPerfil = (props) => {
   //props.handlerCerrarModal();
 }
 
-const guardarValoresInput = (e) => {
+const guardarValoresTxt = (e) => {
   let item = e.target;
 
   switch (item.id) {
@@ -38,10 +38,40 @@ const guardarValoresInput = (e) => {
     case "txtApellido2":
       usuario.apellido2 = item.value;
     break;  
+    case "txtCentroEducativo":
+      usuario.centroEducativo = item.value;
+    break;  
+
+    
     default:
       console.log("Item no especificado");      
     break;
   }
+
+}
+
+const guardarValoresChk = (e) => {
+let item = e.target;
+  console.log(item.checked );
+
+  switch (item.id) {
+    case "chkFormacion":
+      usuario.formacion = item.checked;
+    break;
+    case "chkClases":
+      usuario.clases = item.checked;
+    break;
+    case "chkTieneCorreo":
+      usuario.tieneCorreo = item.checked;
+    break;
+    case "chkNotificaciones":
+      usuario.notificaciones = item.checked;
+    break;  
+    default:
+      console.log("Valor de id de input fuera de rango");      
+    break;
+  }
+
 
 }
 
@@ -68,17 +98,17 @@ const Perfil = (props) => {
         <div className="row ">
           <div className="col-md-5 animated zoomInDown">
             <img data-tar="galeria" onClick={props.handlerMontarTipoModal} className="img-perfil" src=
-            {
-                //Carga de imagen de avatar desde el sesion storage           
-                imgAvatar
-            } alt="logo avatar" />
-            <input type="text-center" className="form-control"  id="txtUsuario" placeholder="*Nombre de usuario*"  defaultValue = {usuario.usuario }  />
+                {
+                    //Carga de imagen de avatar desde el sesion storage           
+                    imgAvatar
+                } alt="logo avatar" />
+            <input type="text-center" className="form-control"  id="txtUsuario" placeholder="*Nombre de usuario*"  defaultValue = {usuario.usuario } onChange={guardarValoresTxt}  />
           </div>
           <div className="col-md-7">
             <h5 className="text-perfil" >Información Básica</h5>
-            <input type="text" className="form-control" id="txtNombre" placeholder="Nombre" defaultValue={ usuario.nombre } onChange={guardarValoresInput}  />
-            <input type="text" className="form-control" id="txtApellido1" placeholder="Primer Apellido" defaultValue={ usuario.apellido1 }  onChange={guardarValoresInput} />
-            <input type="text" className="form-control" id="txtApellido2" placeholder="Segundo Apellido" defaultValue={ usuario.apellido2 } onChange={guardarValoresInput}  /> 
+            <input type="text" className="form-control" id="txtNombre" placeholder="Nombre" defaultValue={ usuario.nombre } onChange={guardarValoresTxt}  />
+            <input type="text" className="form-control" id="txtApellido1" placeholder="Primer Apellido" defaultValue={ usuario.apellido1 }  onChange={guardarValoresTxt} />
+            <input type="text" className="form-control" id="txtApellido2" placeholder="Segundo Apellido" defaultValue={ usuario.apellido2 } onChange={guardarValoresTxt}  /> 
             <br /> <br />
           </div>
         </div>
@@ -86,10 +116,8 @@ const Perfil = (props) => {
         <div className="row">
           <div className="col-md-12">
             <h5 className="text-perfil" >Gana puntos: Completa lo siguiente:</h5>
-            <select className="form-control" name="Centro">
-              <option select="true" disabled={true} value="1">Centro Educativo</option>
-              <option value="2">Base de datos</option>
-            </select><br />
+            <input type="text" className="form-control" id="txtCentroEducativo" placeholder="Escriba el nombre del centro educativo" defaultValue={ usuario.centroEducativo } onChange={guardarValoresTxt}  />
+            <br />
           </div>
         </div>
 
@@ -102,7 +130,7 @@ const Perfil = (props) => {
 
           <div className="col-4">
             <div className="pretty p-switch p-fill">
-              <input type="checkbox" />
+              <input id="chkFormacion" type="checkbox" onClick={guardarValoresChk}  defaultChecked={usuario.formacion} />
               <div className="state">
                 <label></label>
               </div>
@@ -116,7 +144,7 @@ const Perfil = (props) => {
           </div>
           <div className="col-4">
             <div className="pretty p-switch p-fill">
-              <input type="checkbox" />
+              <input id="chkClases" type="checkbox"  onClick={guardarValoresChk}   defaultChecked={usuario.clases} />
               <div className="state">
                 <label></label>
               </div>
@@ -132,7 +160,7 @@ const Perfil = (props) => {
           </div>
           <div className="col-4">
             <div className="pretty p-switch p-fill">
-              <input type="checkbox" />
+              <input type="checkbox" id="chkTieneCorreo"  onClick={guardarValoresChk}  defaultChecked={usuario.tieneCorreo} />
               <div className="state">
                 <label></label>
               </div>
@@ -146,7 +174,7 @@ const Perfil = (props) => {
           </div>
           <div className="col-4">
             <div className="pretty p-switch p-fill">
-              <input type="checkbox" />
+              <input type="checkbox" id="chkNotificaciones" onClick={guardarValoresChk}  defaultChecked={usuario.notificaciones} />
               <div className="state">
                 <label></label>
               </div>
