@@ -2,11 +2,6 @@ import React from 'react';
 import referenciasJson from '../data/referencias.json';
 const referencias = referenciasJson[0];
 
-const guardarDatosPerfil = (props) => {
-  //TODO Enviar datos del form al servidor **********
-  props.handlerCerrarModal();
-}
-
 var usuario;
 var imgAvatar;
 
@@ -17,6 +12,37 @@ const obtenerDatosPerfil = () => {
   console.log("Usuario de session",  usuario);  
   //fomra la url del avatar
   imgAvatar = referencias.img + "avatar/" + usuario.avatar + ".png";
+}
+
+
+const guardarDatosPerfil = (props) => {
+  //TODO Enviar datos del form al servidor **********
+  console.log("Usuario", usuario);
+  
+  //props.handlerCerrarModal();
+}
+
+const guardarValoresInput = (e) => {
+  let item = e.target;
+
+  switch (item.id) {
+    case "txtUsuario":
+      usuario.usuario = item.value;
+    break;
+    case "txtNombre":
+      usuario.nombre = item.value;
+    break;
+    case "txtApellido1":
+      usuario.apellido1 = item.value;
+    break;
+    case "txtApellido2":
+      usuario.apellido2 = item.value;
+    break;  
+    default:
+      console.log("Item no especificado");      
+    break;
+  }
+
 }
 
 
@@ -46,13 +72,13 @@ const Perfil = (props) => {
                 //Carga de imagen de avatar desde el sesion storage           
                 imgAvatar
             } alt="logo avatar" />
-            <input type="text-center" className="form-control" placeholder="*Nombre Perfil*"  defaultValue = {usuario.usuario }  />
+            <input type="text-center" className="form-control"  id="txtUsuario" placeholder="*Nombre de usuario*"  defaultValue = {usuario.usuario }  />
           </div>
           <div className="col-md-7">
             <h5 className="text-perfil" >Información Básica</h5>
-            <input type="text" className="form-control" placeholder="Nombre" defaultValue={ usuario.nombre }  />
-            <input type="text" className="form-control" placeholder="Primer Apellido" defaultValue={ usuario.apellido1 }  />
-            <input type="text" className="form-control" placeholder="Segundo Apellido" defaultValue={ usuario.apellido2 }  /> 
+            <input type="text" className="form-control" id="txtNombre" placeholder="Nombre" defaultValue={ usuario.nombre } onChange={guardarValoresInput}  />
+            <input type="text" className="form-control" id="txtApellido1" placeholder="Primer Apellido" defaultValue={ usuario.apellido1 }  onChange={guardarValoresInput} />
+            <input type="text" className="form-control" id="txtApellido2" placeholder="Segundo Apellido" defaultValue={ usuario.apellido2 } onChange={guardarValoresInput}  /> 
             <br /> <br />
           </div>
         </div>
@@ -130,13 +156,7 @@ const Perfil = (props) => {
 
         <div className="row">
           <div className="col-md-8">
-            {
-              usuario.correo !=="vacio" ?
-                <input type="email" className="form-control" placeholder="Introduzca su email" defaultValue= {usuario.correo} />
-                :
-                <input type="email" className="form-control" placeholder="Introduzca su email" />
-            }
-            
+            <input type="email" className="form-control" placeholder="Introduzca su email" defaultValue= {usuario.correo} />                        
           </div>
           <div className="col-md-4">
             <button  onClick = { () => guardarDatosPerfil( props) }  className="btn btn-warning" > Guardar perfil </button>
