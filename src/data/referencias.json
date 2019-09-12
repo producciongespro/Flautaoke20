@@ -1,13 +1,13 @@
 [
     {
         "version" : "Flautaoke v1.0",
-        "webservices" : "http://localhost/Flautaoke19/webservices/flautaoke19/",
-        "img" : "http://localhost/Flautaoke19/server_assets/flautaoke19/img/",
-        "getPaises" : "http://localhost/Flautaoke19/webservices/flautaoke19/obtener_paises.php",
-        "getCanciones" : "http://localhost/Flautaoke19/webservices/flautaoke19/obtener_canciones.php",
-        "getPerfil" : "http://localhost/Flautaoke19/webservices/flautaoke19/obtener_perfil.php",
-        "setRegistro" : "http://localhost/Flautaoke19/webservices/flautaoke19/registro.php",
-        "login" : "http://localhost/Flautaoke19/webservices/flautaoke19/login.php",
-        "assets" : "http://localhost/Flautaoke19/server_assets/flautaoke19/"
+        "webservices" : "http://localhost/Flautaoke20/webservices/flautaoke20/",
+        "img" : "http://localhost/Flautaoke20/server_assets/flautaoke20/img/",
+        "getPaises" : "http://localhost/Flautaoke20/webservices/flautaoke20/obtener_paises.php",
+        "getCanciones" : "http://localhost/Flautaoke20/webservices/flautaoke20/obtener_canciones.php",
+        "getPerfil" : "http://localhost/Flautaoke20/webservices/flautaoke20/obtener_perfil.php",
+        "setRegistro" : "http://localhost/Flautaoke20/webservices/flautaoke20/registro.php",
+        "login" : "http://localhost/Flautaoke20/webservices/flautaoke20/login.php",
+        "assets" : "http://localhost/Flautaoke20/server_assets/flautaoke20/"
     }
 ]
