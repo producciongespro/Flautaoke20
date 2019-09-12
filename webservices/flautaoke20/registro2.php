@@ -17,8 +17,8 @@
 		$provincia = utf8_decode ($dataObject-> provincia);
 		$sexo = $dataObject-> sexo;
 		$fechaNacimiento = $dataObject-> fechaNacimiento;
-		$clave = utf8_decode ($dataObject-> clave);
-		$confirmaClave = utf8_decode ($dataObject-> confirmaClave);
+		$clave = $dataObject-> clave;
+		$confirmaClave = $dataObject-> confirmaClave;
 		$activo = 1;
 		$tipoUsuario = 1;
 	

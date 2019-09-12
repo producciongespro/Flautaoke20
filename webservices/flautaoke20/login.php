@@ -10,33 +10,26 @@ $mensaje = array();
     require('funcs/conexion.php');
     require('funcs/funcs.php');
     $mysqli = conectarDB();
-    //sleep(1);
-	
+    //sleep(1);	
 	$JSONData = file_get_contents("php://input");
-	$dataObject = json_decode($JSONData);
-	
-    //creaciòn de la sesiòn:
-    session_start();
-
-    // Especifica que tipo de carcateres va a escapar
+	$dataObject = json_decode($JSONData);    
+    session_start();    
     $mysqli->set_charset('utf8');
-
-    //real escape es para filtrar los carcateres que van a etrar a la consulta SQL para evita SQL inyection
+	    
 	$usuario = $dataObject-> usuario;
 	$pas =	$dataObject-> clave;
-    //$usuario = $mysqli->real_escape_string( $_POST['usuario']);
-    //$pas = $mysqli->real_escape_string( $_POST['clave']);
-    if ($nueva_consulta = $mysqli->prepare("Select nombre, apellido1, apellido2, nickname, id_tipo, id_usr, password, avatar, correo, centro_educativo From usuarios Where nickname = ?")) {
+    
+    if ($nueva_consulta = $mysqli->prepare("Select nombre, apellido1, apellido2, usuario, tipoUsuario, idUsuario, avatar, correo, centroEducativo, claveEncriptada From usuarios Where usuario = ?")) {
         $nueva_consulta->bind_param('s', $usuario);
         $nueva_consulta->execute();
         $resultado = $nueva_consulta->get_result();
         if ($resultado->num_rows == 1) {
             $datos = $resultado->fetch_assoc();
-             $encriptado_db = $datos['password'];
-            if ((password_verify($pas, $encriptado_db) AND (isActivo($usuario))))
+             $encriptado_db = $datos['claveEncriptada'];
+            if (   (password_verify($pas, $encriptado_db)   )    )
             {
-                $_SESSION['usuario'] = $datos['nickname'];
-                echo json_encode(array('error'=>false,'usuario'=>$datos['nickname'], 'nombre'=>$datos['nombre'],  'apellido1'=>$datos['apellido1'],  'apellido2'=>$datos['apellido2'],    'correo'=>$datos['correo'],     'centro_educativo'=>$datos['centro_educativo'],       'id'=>$datos['id_usr'], 'avatar'=>$datos['avatar']  ) );
+                $_SESSION['usuario'] = $datos['usuario'];
+                echo json_encode(array('error'=>false,'usuario'=>$datos['usuario'], 'nombre'=>$datos['nombre'],  'apellido1'=>$datos['apellido1'],  'apellido2'=>$datos['apellido2'],    'correo'=>$datos['correo'],     'centroEducativo'=>$datos['centroEducativo'],       'idUsuario'=>$datos['idUsuario'], 'avatar'=>$datos['avatar']  ) );
               }
 
                else {
