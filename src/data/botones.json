@@ -1,0 +1,56 @@
+[
+    [ 
+        {
+         "etiqueta": "INICIO",
+         "id"  : "inicio",
+         "titulo" : "Inicio"
+         },
+         {
+         "etiqueta": "HISTORIA",
+         "id"  : "historia",
+         "titulo" : "Historia"
+         },
+         { 
+         "etiqueta": "MANTENIMIENTO",
+         "id"  : "mantenimiento",
+         "titulo" : "Mantenimiento"
+         },
+         {
+         "etiqueta": "TÉCNICAS",
+         "id"  : "tecnicas",
+         "titulo" : "Técnicas" 
+         },
+         {
+         "etiqueta": "DIGITACIÓN",
+         "id"  : "digitacion",
+         "titulo" : "Digitación"
+         },
+         { 
+         "etiqueta": "SIMBOLOGÍA",
+         "id"  : "simbologia",
+         "titulo" : "Simbología"
+         }
+     ],
+     [
+        {
+            "id" : "info",
+            "nombre" : "icono-inicio.png"
+        },
+        {
+            "id" : "historiaC",
+            "nombre" : "icono-historia.png"
+        },
+        {
+            "id" : "notas",
+            "nombre" : "icono-notas.png"
+        },
+        {
+            "id" : "partituras",
+            "nombre" : "icono-partitura.png"
+        },
+        {
+            "id" : "flautaoke",
+            "nombre" :  "icono-flautaoke.png"
+        }
+     ]       
+]

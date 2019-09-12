@@ -1,0 +1,46 @@
+
+.btn-custom-text {
+    background-color: #ececec;
+    text-align: left;
+    display: block;
+    width: 100%;
+    margin-bottom: 4%;
+    padding: 0% 2% 0% 10%;
+    box-sizing: border-box;
+    cursor: pointer; 
+    letter-spacing: 0.5pt; 
+    color: #6E6E6E;    
+    font-weight: bold;  
+}
+
+
+.btn-custom-text:hover {
+    font-weight: bold;
+    background-color: darkgrey;
+    padding: 0% 2% 0% 10%;
+    letter-spacing: 0.5pt;  
+    color: #6E6E6E; 
+    animation-name: tada;
+}
+
+
+
+
+.btn-custom-img {
+    background-color: #fff;
+    text-align: center;    
+    width: 80%;
+    height: auto;
+    margin-bottom: 5%;        
+    cursor: pointer;    
+}
+
+
+.btn-custom-img:hover {  
+  border-radius: 15px;
+  animation-name: rubberBand;
+}
+
+.menu_izq {
+padding-top: 5%;
+}

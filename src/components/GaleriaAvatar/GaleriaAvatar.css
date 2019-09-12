@@ -1,0 +1,13 @@
+.img-avatar {
+    height: auto;
+    width: 50%;
+    max-width: 128px;
+    border: solid brown 1px;
+    border-radius: 5%;
+    cursor: pointer; 
+}
+
+.img-avatar:hover {
+    animation-name: shake;
+    border: solid green 2px;
+}

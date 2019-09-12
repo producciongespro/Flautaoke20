@@ -1,0 +1,44 @@
+[
+    {
+        "id" : "a1",
+        "archivo" : "avatar/a1.png",
+        "etiqueta" : "Azul"
+    },
+    {
+        "id" : "a2",
+        "archivo" : "avatar/a2.png",
+        "etiqueta" : "Amarillo"
+    },
+    {
+        "id" : "a3",
+        "archivo" : "avatar/a3.png",
+        "etiqueta" : "Rojo"
+    },
+    {
+        "id" : "a4",
+        "archivo" : "avatar/a4.png",
+        "etiqueta" : "Verde"
+    },
+    {
+        "id" : "a5",
+        "archivo" : "avatar/a5.png",
+        "etiqueta" : "Morado"
+    },
+    {
+        "id" : "a6",
+        "archivo" : "avatar/a6.png",
+        "etiqueta" : "Naranja"
+    },
+    {
+        "id" : "a7",
+        "archivo" : "avatar/a7.png",
+        "etiqueta" : "Redondo"
+    },
+    {
+        "id" : "a8",
+        "archivo" : "avatar/a8.png",
+        "etiqueta" : "Cuadrado"
+    }
+
+
+]

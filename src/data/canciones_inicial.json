@@ -1,0 +1,17 @@
+[
+    {
+        "id" : "pollitos",
+        "etiqueta" : "Los pollitos",
+        "nivel" : "inicial"        
+    },
+    {
+        "id" : "mochila",
+        "etiqueta" : "La Mochila Azul",
+        "nivel" : "inicial"        
+    },
+    {
+        "id" : "cumple",
+        "etiqueta" : "Cumple Años Feliz",
+        "nivel" : "inicial"        
+    }
+]
