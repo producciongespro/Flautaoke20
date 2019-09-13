@@ -13,10 +13,10 @@
 	
 
 		$idUsuario = $dataObject-> idUsuario;
-		$usuario = $dataObject-> usuario;
-		$nombre = $dataObject-> nombre;
-		$apellido1 = $dataObject-> apellido1;
-		$apellido2 = $dataObject-> apellido2;		
+		$usuario = utf8_decode( $dataObject-> usuario) ;
+		$nombre = utf8_decode($dataObject-> nombre);
+		$apellido1 = utf8_decode($dataObject-> apellido1);
+		$apellido2 = utf8_decode($dataObject-> apellido2);		
 		$centroEducativo = $dataObject-> centroEducativo;
 		$clases = $dataObject-> clases;
 		$correo = $dataObject-> correo;
