@@ -65,7 +65,7 @@ class App extends Component {
   componentWillMount() {
 
     //obtener las canciones:
-    axios.get(referencias.getCanciones)
+    axios.get(referencias.obtenerCanciones)
       .then(function (response) {
         //console.log(response);
         cancionesBD = response.data;
