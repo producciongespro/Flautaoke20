@@ -32,13 +32,8 @@ const referencias = referenciasJSON[0];
 const arrayBtnIzquierdo = listaBotones[0];
 const arrayimgBtDerecho = listaBotones[1];
 
-
-
 //dataset con canciones de la BD:
 var cancionesBD;
-
-
-
 
 class App extends Component {
   constructor() {
