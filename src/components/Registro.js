@@ -25,9 +25,9 @@ class Registro extends Component {
 
   componentWillMount() {
     //Obtener paises
-    axios.get(referencias.getPaises)
+    axios.get(referencias.obtenerPaises)
       .then(function (response) {
-        //console.log(response.data);       
+        //console.log("Paises:",  response.data);       
         const limite = response.data.length;
         for (let index = 0; index < limite; index++) {
           paises.push(response.data[index].nombre);
@@ -75,9 +75,9 @@ class Registro extends Component {
     //this.setState({ ajaxOcupado : true });
 
     const me = this;
-    console.log("URL servicio", referencias.setRegistro );
+    console.log("URL servicio", referencias.registroUsuario );
     
-    axios.post(referencias.setRegistro, data)    
+    axios.post(referencias.registroUsuario, data)    
       .then(function (response) {
         console.log(response.data);
 

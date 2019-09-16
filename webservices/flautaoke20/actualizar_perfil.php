@@ -17,7 +17,7 @@
 		$nombre = utf8_decode($dataObject-> nombre);
 		$apellido1 = utf8_decode($dataObject-> apellido1);
 		$apellido2 = utf8_decode($dataObject-> apellido2);		
-		$centroEducativo = $dataObject-> centroEducativo;
+		$centroEducativo =  utf8_decode($dataObject-> centroEducativo);
 		$clases = $dataObject-> clases;
 		$correo = $dataObject-> correo;
 		$formacion = $dataObject-> formacion;		
@@ -33,7 +33,33 @@
 			die("Connection failed: " . $conn->connect_error);
 		}
 
-		$sql = "UPDATE usuarios SET usuario='$usuario', nombre='$nombre', apellido1='$apellido1', apellido2='$apellido2', centroEducativo='$centroEducativo', clases='$clases', correo='$correo', formacion='$formacion', notificaciones='$notificaciones', tieneCorreo='$tieneCorreo', avatar='avatar' WHERE idUsuario= $idUsuario";
+		//Conversion de valores booleanos a integer
+		if ($clases == true) {
+			$clases = 1;
+        }else {
+			$clases = 0;
+		}
+
+			if ($formacion == true) {
+			$formacion = 1;
+        }else {
+			$formacion = 0;
+		}
+
+		if ($notificaciones == true) {
+			$notificaciones = 1;
+        }else {
+			$notificaciones = 0;
+		}
+
+		if ($tieneCorreo == true) {
+			$tieneCorreo = 1;
+        }else {
+			$tieneCorreo = 0;
+		}
+
+
+		$sql = "UPDATE usuarios SET usuario='$usuario', nombre='$nombre', apellido1='$apellido1', apellido2='$apellido2', centroEducativo='$centroEducativo', clases='$clases', correo='$correo', formacion='$formacion', notificaciones='$notificaciones', tieneCorreo='$tieneCorreo', avatar='$avatar' WHERE idUsuario= $idUsuario";
 
 		if ($conn->query($sql) === TRUE) {
 			echo "Record updated successfully";

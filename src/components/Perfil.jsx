@@ -1,5 +1,6 @@
 import React from 'react';
 import referenciasJson from '../data/referencias.json';
+import axios from 'axios';
 const referencias = referenciasJson[0];
 
 var usuario;
@@ -18,7 +19,24 @@ const obtenerDatosPerfil = () => {
 const guardarDatosPerfil = (props) => {
   //TODO Enviar datos del form al servidor **********
   console.log("Usuario", usuario);
-  sessionStorage.setItem("usuario", JSON.stringify(usuario) );  
+  sessionStorage.setItem("usuario", JSON.stringify(usuario) );
+  
+  //obtiene el objeto de session:
+  let data = JSON.parse(sessionStorage.getItem("usuario"));  
+
+  
+  axios.post(referencias.actualizarPerfil, data)
+  .then(function (response) {
+    console.log(response);
+  })
+  .catch(function (error) {
+    console.log(error);
+  })
+  .finally(() => {
+    console.log("fin");    
+  });
+
+
   props.handlerCerrarModal();
 }
 
