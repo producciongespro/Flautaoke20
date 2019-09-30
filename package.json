@@ -16,7 +16,8 @@
     "react": "^16.8.6",
     "react-alertify-js": "0.0.1",
     "react-dom": "^16.8.6",
-    "react-scripts": "2.1.8"
+    "react-scripts": "2.1.8",
+    "react-update": "^0.4.4"
   },
   "scripts": {
     "start": "react-scripts start",

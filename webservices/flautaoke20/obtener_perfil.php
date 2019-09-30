@@ -43,7 +43,7 @@ function obtenerArreglo($sql){
         $i++;
     }
 
-    desconectar($conexion); //desconectamos la base de datos
+    mysqli_close($conexion);
 
     return $arreglo; //devolvemos el array
 }
