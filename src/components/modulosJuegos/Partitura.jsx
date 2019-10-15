@@ -3,8 +3,12 @@ import React from 'react';
 const Partitura = (props) => {
     return ( 
         <React.Fragment>
-            <h3>Partitura</h3>            
-            <iframe src={props.cancionActual.url_partitura } frameBorder="0"></iframe>
+            <h3>Partitura</h3> 
+            {
+                console.log("Partitura", props.cancionActual.url_partitura)
+                
+            }           
+            <iframe title="partitura"  src={props.cancionActual.url_partitura } height="450" width="750" frameBorder="0" allowFullScreen></iframe>
             
 
 
