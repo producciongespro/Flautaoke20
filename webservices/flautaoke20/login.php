@@ -19,7 +19,7 @@ $mensaje = array();
 	$usuario = $dataObject-> usuario;
 	$pas =	$dataObject-> clave;
     
-    if ($nueva_consulta = $mysqli->prepare("Select nombre, apellido1, apellido2, usuario, tipoUsuario, idUsuario, avatar, correo, centroEducativo, claveEncriptada, formacion, clases, tieneCorreo, notificaciones, saldo From usuarios Where usuario = ?")) {
+    if ($nueva_consulta = $mysqli->prepare("Select nombre, apellido1, apellido2, usuario, tipoUsuario, idUsuario, avatar, correo, centroEducativo, claveEncriptada, formacion, clases, tieneCorreo, notificaciones From usuarios Where usuario = ?")) {
         $nueva_consulta->bind_param('s', $usuario);
         $nueva_consulta->execute();
         $resultado = $nueva_consulta->get_result();
@@ -29,7 +29,7 @@ $mensaje = array();
             if (   (password_verify($pas, $encriptado_db)   )    )
             {
                 $_SESSION['usuario'] = $datos['usuario'];
-                echo json_encode(array('error'=>false,'usuario'=>$datos['usuario'], 'nombre'=>$datos['nombre'],  'apellido1'=>$datos['apellido1'],  'apellido2'=>$datos['apellido2'],    'correo'=>$datos['correo'],     'centroEducativo'=>$datos['centroEducativo'],       'idUsuario'=>$datos['idUsuario'], 'avatar'=>$datos['avatar'],  'formacion'=>$datos['formacion'], 'clases'=>$datos['clases'], 'tieneCorreo'=>$datos['tieneCorreo'], 'notificaciones'=>$datos['notificaciones'], 'saldo'=>$datos['saldo']    ) );
+                echo json_encode(array('error'=>false,'usuario'=>$datos['usuario'], 'nombre'=>$datos['nombre'],  'apellido1'=>$datos['apellido1'],  'apellido2'=>$datos['apellido2'],    'correo'=>$datos['correo'],     'centroEducativo'=>$datos['centroEducativo'],       'idUsuario'=>$datos['idUsuario'], 'avatar'=>$datos['avatar'],  'formacion'=>$datos['formacion'], 'clases'=>$datos['clases'], 'tieneCorreo'=>$datos['tieneCorreo'], 'notificaciones'=>$datos['notificaciones']    ) );
               }
 
                else {

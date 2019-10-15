@@ -129,24 +129,16 @@ const Perfil = (props) => {
 
       <div className="textos control-group form-group">
 
-
-        <div className="row">
-          <div className="col-6 animated zoomInDown">
-            <img data-tar="galeria" onClick={(e) => abrirGaleria(e, props)} className="img-perfil" src=
-              {
-                //Carga de imagen de avatar desde el sesion storage           
-                imgAvatar
-              } alt="logo avatar" />
+        <div className="row ">
+          <div className="col-md-5 animated zoomInDown">
+            <img data-tar="galeria" onClick={ (e) => abrirGaleria(e, props)  } className="img-perfil" src=
+                {
+                    //Carga de imagen de avatar desde el sesion storage           
+                    imgAvatar
+                } alt="logo avatar" />
+            <input type="text-center" className="form-control"  id="txtUsuario" placeholder="*Nombre de usuario*"  defaultValue = {usuario.usuario } onChange={guardarValoresTxt}  />
           </div>
-          <div className="col-6">
-            <input type="text-center" className="form-control" id="txtUsuario" placeholder="*Nombre de usuario*" defaultValue={usuario.usuario} onChange={guardarValoresTxt} />
-            <hr/>
-            <span>Saldo: {usuario.saldo} rubras </span>
-          </div>          
-        </div>
-
-        <div className="row ">        
-          <div className="col-md-12">
+          <div className="col-md-7">
             <h5 className="text-perfil" >Información Básica</h5>
             <input type="text" className="form-control" id="txtNombre" placeholder="Nombre" defaultValue={ usuario.nombre } onChange={guardarValoresTxt}  />
             <input type="text" className="form-control" id="txtApellido1" placeholder="Primer Apellido" defaultValue={ usuario.apellido1 }  onChange={guardarValoresTxt} />

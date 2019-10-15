@@ -41,7 +41,7 @@ $mysqli=conectarDB();
 	{
 		global $mysqli;
 
-		$stmt = $mysqli->prepare("SELECT idUsuario FROM usuarios WHERE usuario = ? LIMIT 1");
+		$stmt = $mysqli->prepare("SELECT id_usr FROM usuarios WHERE nickname = ? LIMIT 1");
 		$stmt->bind_param("s", $usuario);
 		$stmt->execute();
 		$stmt->store_result();
@@ -81,11 +81,12 @@ $mysqli=conectarDB();
 			echo "</div>";
 		}
 	}
-	
+
 	function registraUsuario($usuario, $claveEncriptada, $nombre, $apellido1, $apellido2, $pais, $provincia, $fechaNacimiento, $sexo, $token, $tipoUsuario, $activo){
-	$mysqli = conectarDB();
+		$mysqli = conectarDB();
       mysqli_query(																																													
-				$mysqli,"INSERT INTO usuarios (usuario, claveEncriptada, nombre, apellido1, apellido2, pais, provincia, fechaNacimiento,  sexo, token, tipoUsuario, activo) VALUES( '$usuario', '$claveEncriptada', '$nombre',  '$apellido1', '$apellido2', '$pais', '$provincia', '$fechaNacimiento', '$sexo', '$token', '$tipoUsuario', '$activo')") or die ("Problemas al insertar registro".mysqli_error($mysqli));
+				$mysqli,"INSERT INTO usuarios (usuario, claveEncriptada, nombre, apellido1, apellido2, pais, provincia, fechaNacimiento,  sexo, token, tipoUsuario, activo) VALUES( '$usuario', '$claveEncriptada', '$nombre',  '$apellido1', '$apellido2', '$pais', '$provincia', '$fechaNacimiento', '$sexo', '$token, '$tipoUsuario', '$activo')") or die ("Problemas al insertar registro".mysqli_error($mysqli));
+				//$mysqli,"INSERT INTO usuarios ( usuario, claveEncriptada, nombre, apellido1, apellido2, pais, provincia, fechaNacimiento,  sexo, token, tipoUsuario, activo ) VALUES( 'pepe', 'apellido1', 'apellido2',  'claveEncriptada', 'usuario', 'pais', 'provincia', 'm', '2018-04-17', '1, '121212', '1')") or die ("Problemas al insertar registro".mysqli_error($mysqli));
 			if ($mysqli) {
 				return 1;
 			}
