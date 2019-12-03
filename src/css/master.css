@@ -16,6 +16,18 @@
     cursor: pointer;
 }
 
+.titulos-partituras{
+    color: #6E6E6E;
+    font-weight: bold;
+    font-size: 24px;
+}
+
+.pt-4{
+    color: white;
+    font-weight: bold;
+    font-size: 32px;
+}
+
 .img-niveles:hover {
     animation-name: swing; 
 }

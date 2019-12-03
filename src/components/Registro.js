@@ -80,7 +80,6 @@ class Registro extends Component {
     axios.post(referencias.registroUsuario, data)    
       .then(function (response) {
         console.log(response.data);
-
         alertify
           .alert( referencias.version, response.data.mensaje, function () {            
             me.cerrarModal();                       
